@@ -1,0 +1,18 @@
+# CFW {{{1
+aux
+config
+dist
+.env
+.wrangler
+
+# Node {{{1
+node_modules
+
+# Misc {{{1
+*.out
+*.o2e
+*.ts
+
+# Vim {{{1
+.*.sw?
+*.session

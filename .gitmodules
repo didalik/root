@@ -1,0 +1,36 @@
+[submodule "aim/shex"]
+	path = aim/shex
+	url = ssh://ubuntu@ubuntu:/home/ubuntu/people/didalik/aim/shex
+[submodule "dak/util/org"]
+	path = dak/util/org
+	url = ssh://didalik_aim@gc:/home/didalik_aim/people/didalik/org
+[submodule "dak/util/public"]
+	path = dak/util/public
+	url = git@github.com:didalik/svc.git
+[submodule "dev-qa-leaf-conf"]
+	path = dev-qa-leaf-conf
+	url = git@github.com:didalik/dev-qa-leaf-conf.git
+[submodule "sandbox/bootstrap-kid"]
+	path = sandbox/bootstrap-kid
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/sandbox/bootstrap-kid
+[submodule "sandbox/docker/shared-svc"]
+	path = sandbox/docker/shared-svc
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/sandbox/docker/shared-svc
+[submodule "sandbox/ssh-kid-image/configure-ssh"]
+	path = sandbox/ssh-kid-image/configure-ssh
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/sandbox/ssh-kid-image/configure-ssh
+[submodule "sandbox/ubuntu-users"]
+	path = sandbox/ubuntu-users
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/sandbox/ubuntu-users
+[submodule "sandbox/vault/genesis"]
+	path = sandbox/vault/genesis
+	url = ssh://didalik_aim@gc:/home/didalik_aim/people/didalik/sandbox/vault/genesis
+[submodule "sandbox/wrangler/genesis"]
+	path = sandbox/wrangler/genesis
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/sandbox/wrangler/genesis
+[submodule "sandbox/wrangler/registry"]
+	path = sandbox/wrangler/registry
+	url = ssh://didalik_aim@gc:/home/didalik_aim/people/didalik/sandbox/wrangler/registry
+[submodule "sandbox/wrangler/shex"]
+	path = sandbox/wrangler/shex
+	url = ssh://ubuntu@ubuntu:/home/ubuntu/people/didalik/aim/shex

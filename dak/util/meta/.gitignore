@@ -1,0 +1,17 @@
+# CFW
+aux
+config
+dist
+.env
+.wrangler
+
+# Node
+node_modules
+
+# Test
+*.out
+*.o2e
+
+# Vim
+.*.sw?
+*.session
