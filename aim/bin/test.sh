@@ -16,6 +16,7 @@ init () {
   git init; git add -A; git commit -am 'Add files'
   irra $host $user
   git push $host main
+  exit
 }
 
 echo "- $0 $#: $@" # {{{1

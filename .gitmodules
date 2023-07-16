@@ -1,6 +1,6 @@
 [submodule "aim/shex"]
 	path = aim/shex
-	url = ssh://ubuntu@ubuntu:/home/ubuntu/people/didalik/aim/shex
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/aim/shex
 [submodule "dak/util/org"]
 	path = dak/util/org
 	url = ssh://didalik_aim@gc:/home/didalik_aim/people/didalik/org
