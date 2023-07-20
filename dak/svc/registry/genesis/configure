@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+. $HOME/.dak.svc.env
+
+echo "- starting $0 on $(date)" # {{{1
+SVC_PATH=${npm_config_svc_path:-../svc}
+echo "- SVC_PATH $SVC_PATH, npm_config_port '$npm_config_port'"
+echo "- $#: $@"
+
+exit
+
+[ $# -ne 2 ] && {
+  printf '\n\t%s\n\n' 'Usage:'
+  echo -e '\t[ rm -rf config; ] npm run i [ --svc <SVC_PATH> ] <VAULT_URL_USER> <VAULT_URL_HOST>'
+  echo -e "\t# <SVC_PATH>: must be outside of $PWD"
+  echo -e '\t# <VAULT_URL_USER>: e.g., didalik_aim'
+  echo -e '\t# <VAULT_URL_HOST>: use nslookup or /etc/hosts, no raw IP; e.g., gc'
+  exit 1
+}
+
+. registry/org/lib/util.sh
+isSubDir $(dirname $SVC_PATH) .
+set -e
+
+mkdir config # {{{1
+echo "export SVC_URL='$(vault_url $1 $2 $SVC_PATH)'" >> config/.env
+echo "export VAULT_URL_USER='$1'" >> config/.env
+echo "export VAULT_URL_HOST='$2'" >> config/.env
+cd config
+
+keys=() # [OWNER_SK, OWNER_PK, SVC_SK, SVC_PK] {{{2
+for t in 'OWNER' 'SVC'; do
+  for key in "$(../registry/org/bin/run.mjs generate_keypair)"; do keys+=($key); done
+done
+echo "export SVC_START='wrangler dev dist/index.mjs'" >> ./.env
+echo "export OWNER_SK='${keys[0]}'" >> ./.env
+echo "export OWNER_PK='${keys[1]}'" >> ./.env
+echo "export SVC_SK='${keys[2]}'" >> ./.env
+echo "export SVC_PK='${keys[3]}'" >> ./.env
+echo "export SVC_NAME='vault'" >> ./.env
+echo "export SVC_PATH='$SVC_PATH'" >> ./.env
+echo "export THIS_SCRIPT='$0'" >> ./.env
+echo "export TIMESTAMP_NOW='$(date)'" >> ./.env
+. ./.env
+
+[ -e ../config-templates/meta.ts ] || { # {{{2
+  echo '- configuring KV'
+  envsubst < ../config-meta/wrangler.toml > wrangler.toml
+  id=$(wrangler kv:namespace create KVNS_DO_ID | tail -n 1)
+  id=${id#*id = ?}
+  export KVNS_DO_ID_BINDING=${id%? *}
+  id=$(wrangler kv:namespace create KVNS_DO_ID --preview | tail -n 1)
+  id=${id#*preview_id = ?}
+  export KVNS_DO_ID_BINDING_PREVIEW=${id%? *}
+  echo '- updating templates'
+  envsubst < ../config-meta/src/index.mjs > ../config-templates/src/index.mjs
+  envsubst < ../config-meta/src/module-worker.mjs > ../config-templates/src/module-worker.mjs
+  envsubst < ../config-meta2/wrangler.toml > wrangler.toml
+  cp wrangler.toml ../config-templates/
+  touch ../config-templates/meta.ts
+}
+
+envsubst < ../config-templates/Makefile > Makefile # {{{2
+envsubst < ../config-templates/wrangler.toml > wrangler.toml # FIXME
+mkdir bin; cp -a ../bin/build.sh ../bin/test.sh bin/ # TODO move ../bin/build.sh to org
+cp -a ../config-templates/src/ .
+cp -a ../registry/org ../registry/public .
+envsubst < ../config-templates/package.json > package.json
+wrangler dev --port ${npm_config_port:-8787} dist/index.mjs
+
+# }}}2
+cd - > /dev/null
+
+echo -e "- exiting $0 on $(date)\n" # {{{1
+
