@@ -34,3 +34,6 @@
 [submodule "sandbox/wrangler/shex"]
 	path = sandbox/wrangler/shex
 	url = ssh://ubuntu@ubuntu:/home/ubuntu/people/didalik/aim/shex
+[submodule "dak/util/meta"]
+	path = dak/util/meta
+	url = ssh://didalik_aim@gc:/home/didalik_aim/people/didalik/dak/util/meta

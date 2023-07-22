@@ -1,32 +1,31 @@
 #!/usr/bin/env bash
 
-. $HOME/.dak.svc.env  
-. $DIDALIK/dak/util/org/lib/util.sh
+. ../../../util/public/bash-tpl/bash-tpl # {{{1
+. ../../../util/meta/lib/util.sh
+. $(local_env ../../../..)
 
-echo "- starting $0 on $(date)" # {{{1
+echo "- starting $0 on $(date): DIDALIK $DIDALIK" # {{{1
 SVC_PATH=${npm_config_svc_path:-../svc}
-echo "- SVC_PATH $SVC_PATH, npm_config_port '$npm_config_port'"
-
-isSubDir $(dirname $SVC_PATH) . && { echo "INVALID SVC_PATH $SVC_PATH: subdir of $PWD" >&2; exit 2; } || echo "- SVC_PATH $SVC_PATH is outside $PWD"
-
-mkdir svc # {{{1
-echo "export SVC_URL='$(vault_url $VAULT_URL_USER $VAULT_URL_HOST $SVC_PATH)'" >> svc/.env
-cd svc
+isSubDir $(dirname $SVC_PATH) . && { 
+  echo "INVALID SVC_PATH $SVC_PATH: subdir of $PWD" >&2; exit 2
+} || echo "- SVC_PATH $SVC_PATH is outside of $PWD"
+mkdir svc; cd svc; touch .env
 
 keys=() # [OWNER_SK, OWNER_PK, SVC_SK, SVC_PK] {{{2
 for t in 'OWNER' 'SVC'; do
-  for key in "$($DIDALIK/dak/util/org/bin/run.mjs generate_keypair)"; do keys+=($key); done
+  for key in "$($RUN_MJS generate_keypair)"; do keys+=($key); done
 done
-echo "export SVC_START='wrangler dev dist/index.mjs'" >> ./.env
-echo "export OWNER_SK='${keys[0]}'" >> ./.env
-echo "export OWNER_PK='${keys[1]}'" >> ./.env
-echo "export SVC_SK='${keys[2]}'" >> ./.env
-echo "export SVC_PK='${keys[3]}'" >> ./.env
-echo "export SVC_NAME='$(basename $(dirname $(realpath ..)))'" >> ./.env
-echo "export SVC_PATH='$SVC_PATH'" >> ./.env
-echo "export THIS_SCRIPT='$0'" >> ./.env
-echo "export TIMESTAMP_NOW='$(date)'" >> ./.env
-. ./.env
+putenv OWNER_PK "'${keys[1]}'" .env
+putenv OWNER_SK "'${keys[0]}'" .env
+putenv SVC_NAME $(basename $(dirname $(realpath ..))) .env
+putenv SVC_PATH $SVC_PATH .env
+putenv SVC_PK "'${keys[3]}'" .env
+putenv SVC_SK "'${keys[2]}'" .env
+putenv SVC_START "'wrangler dev dist/index.mjs'" .env
+putenv SVC_URL $(vault_url $VAULT_URL_USER $VAULT_URL_HOST $SVC_PATH) .env
+putenv THIS_SCRIPT $0 .env
+putenv TIMESTAMP_NOW "'$(date)'" .env
+. .env
 
 # }}}2
 
