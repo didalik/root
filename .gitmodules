@@ -41,3 +41,7 @@
 	path = dak/svc/registry
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/registry
 	branch = main
+[submodule "dak/svc/shared"]
+	path = dak/svc/shared
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/shared
+	branch = main
