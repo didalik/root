@@ -37,3 +37,7 @@
 [submodule "dak/util/meta"]
 	path = dak/util/meta
 	url = ssh://didalik_aim@gc:/home/didalik_aim/people/didalik/dak/util/meta
+[submodule "dak/svc/registry"]
+	path = dak/svc/registry
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/registry
+	branch = main
