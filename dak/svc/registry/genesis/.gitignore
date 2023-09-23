@@ -1,9 +1,0 @@
-# CFW
-dist
-svc
-.env
-.wrangler
-
-# Vim
-.*.sw?
-*.session
