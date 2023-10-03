@@ -5,9 +5,10 @@
   "description": "The node_modules for all Дід Alik's JS",
   "scripts": {
     "test": "aim/bin/test.sh"
-  },  
+  },
   "license": "Apache 2",
   "devDependencies": {
+    "@googlemaps/js-api-loader": "^1.16.2",
     "esbuild": "^0.14.34",
     "node-fetch": "^3.2.3",
     "ws": "latest"
