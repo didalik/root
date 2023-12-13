@@ -3,7 +3,7 @@
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/aim/shex
 [submodule "dak/util/org"]
 	path = dak/util/org
-	url = ssh://didalik_aim@gc:/home/didalik_aim/people/didalik/org
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/org
 [submodule "dak/util/public"]
 	path = dak/util/public
 	url = git@github.com:didalik/svc.git

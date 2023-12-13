@@ -13,5 +13,8 @@
     "esbuild": "^0.14.34",
     "node-fetch": "^3.2.3",
     "ws": "latest"
+  },
+  "dependencies": {
+    "stellar-sdk": "latest"
   }
 }
