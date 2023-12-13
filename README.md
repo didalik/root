@@ -1,26 +1,18 @@
 # TODO
 
+Add submodules:
 ```
 .
 ├── dak
 │   ├── hex
-│   │   ├── **agent**
-│   │   ├── **network**
-│   │   │   ├── **public**
-│   │   │   └── **test**
-│   │   └── **_user_**
-│   ├── org
-│   ├── svc
-│   │   ├── admin
-│   │   ├── bootstrap
-│   │   ├── registry
-│   │   ├── registry-genesis
-│   │   ├── shared
-│   │   ├── spa
-│   │   └── vault
-│   └── util
-│       ├── meta
-│       ├── org
-│       └── public
-├
+│   │   ├── agent
+│   │   ├── network
+│   │   │   ├── public
+│   │   │   └── test
+│   │   └── user
+│   └── svc
+│       ├── hex
+│       ├── hex-agent
+│       └── hex-user
 ```
+Make `./dak/hex/user` and `./dak/svc/hex-user` submodules public.
