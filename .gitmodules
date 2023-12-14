@@ -45,3 +45,27 @@
 	path = dak/svc/shared
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/shared
 	branch = main
+[submodule "dak/svc/spa"]
+	path = dak/svc/spa
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/spa
+[submodule "dak/hex/agent"]
+	path = dak/hex/agent
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/agent
+[submodule "dak/hex/network/public"]
+	path = dak/hex/network/public
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/network/public
+[submodule "dak/hex/network/test"]
+	path = dak/hex/network/test
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/network/test
+[submodule "dak/hex/user"]
+	path = dak/hex/user
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/user
+[submodule "dak/svc/hex"]
+	path = dak/svc/hex
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex
+[submodule "dak/svc/hex-agent"]
+	path = dak/svc/hex-agent
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex-agent
+[submodule "dak/svc/hex-user"]
+	path = dak/svc/hex-user
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex-user

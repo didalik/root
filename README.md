@@ -1,6 +1,6 @@
 # TODO
 
-Add submodules:
+Add all the leaves below as NPM packages and git submodules:
 ```
 .
 ├── dak
@@ -15,4 +15,4 @@ Add submodules:
 │       ├── hex-agent
 │       └── hex-user
 ```
-Make `./dak/hex/user` and `./dak/svc/hex-user` submodules public.
+Make submodules `./dak/hex/user` and `./dak/svc/hex-user` public.

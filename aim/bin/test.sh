@@ -40,17 +40,67 @@ init () {
 ## cmd npack: create/update an NPM package (package.json, ...) {{{1
 #
 # SYNOPSIS
-#  npack <package-dir> [<setup-cmd>]
+#  npack <package-dir> <package-name> [<setup-recipe>]
 #   
-# For example: npack dak/hex/test clear
+# For example: npack dak/hex/test test-package clear
 #
 npack () {
   echo "- npack $#: $@"
-  local path=$1 pre=$2
-  shift 2
+  local path=$1 name=$2 pre=$3
+  shift 3
+  . env.$name
   [[ ${#pre} > 0 ]] && npack_make $pre
   npack_make
   exit 0
+}
+
+## cmd npack_hex: add all the leaves below as NPM packages and git submodules {{{1
+# .
+# ├── dak
+# │   ├── hex
+# │   │   ├── agent
+# │   │   ├── network
+# │   │   │   ├── public
+# │   │   │   └── test
+# │   │   └── user
+# │   └── svc
+# │       ├── hex
+# │       ├── hex-agent
+# │       └── hex-user
+#
+# Make submodules `./dak/hex/user` and `./dak/svc/hex-user` public.
+#
+npack_hex () {
+  #npack dak/hex/agent dak-hex-agent # {{{2
+  #init dak/hex/agent ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/agent dak/hex/agent
+  #cd dak/hex/agent;git remote rename u20 origin;cd -
+  #npack dak/hex/network/public dak-hex-network-public
+  #init dak/hex/network/public ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/network/public dak/hex/network/public
+  #cd dak/hex/network/public;git remote rename u20 origin;cd -
+  #npack dak/hex/network/test dak-hex-network-test
+  #init dak/hex/network/test ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/network/test dak/hex/network/test
+  #cd dak/hex/network/test;git remote rename u20 origin;cd -
+  #npack dak/hex/user dak-hex-user
+  #init dak/hex/user ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/user dak/hex/user
+  #cd dak/hex/user;git remote rename u20 origin;cd -
+  #npack dak/svc/hex dak-svc-hex
+  #init dak/svc/hex ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex dak/svc/hex
+  #cd dak/svc/hex;git remote rename u20 origin;cd -
+  #npack dak/svc/hex-agent dak-svc-hex-agent
+  #init dak/svc/hex-agent ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex-agent dak/svc/hex-agent
+  #cd dak/svc/hex-agent;git remote rename u20 origin;cd -
+  #npack dak/svc/hex-user dak-svc-hex-user
+  #init dak/svc/hex-user ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex-user dak/svc/hex-user
+  #cd dak/svc/hex-user;git remote rename u20 origin;cd - # }}}2
+  #cd dak/hex/user;git remote add dak.hex.user git@github.com:didalik/dak.hex.user.git;git push dak.hex.user main;cd -
+  #cd dak/svc/hex-user;git remote add dak.svc.hex-user git@github.com:didalik/dak.svc.hex-user.git;git push dak.svc.hex-user main;cd -
 }
 
 ## cmd test: testing the 'npm test' script {{{1
