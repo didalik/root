@@ -100,7 +100,9 @@ npack_hex () {
   #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex-user dak/svc/hex-user
   #cd dak/svc/hex-user;git remote rename u20 origin;cd - # }}}2
   #cd dak/hex/user;git remote add dak.hex.user git@github.com:didalik/dak.hex.user.git;git push dak.hex.user main;cd -
+  #git submodule set-url dak/hex/user git@github.com:didalik/dak.hex.user.git
   #cd dak/svc/hex-user;git remote add dak.svc.hex-user git@github.com:didalik/dak.svc.hex-user.git;git push dak.svc.hex-user main;cd -
+  #git submodule set-url dak/svc/hex-user git@github.com:didalik/dak.svc.hex-user.git
 }
 
 ## cmd test: testing the 'npm test' script {{{1

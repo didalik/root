@@ -59,7 +59,7 @@
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/network/test
 [submodule "dak/hex/user"]
 	path = dak/hex/user
-	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/user
+	url = git@github.com:didalik/dak.hex.user.git
 [submodule "dak/svc/hex"]
 	path = dak/svc/hex
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex
@@ -68,4 +68,4 @@
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex-agent
 [submodule "dak/svc/hex-user"]
 	path = dak/svc/hex-user
-	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex-user
+	url = git@github.com:didalik/dak.svc.hex-user.git
