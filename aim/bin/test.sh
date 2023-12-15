@@ -14,7 +14,8 @@
 ## cmd do_bats: run the BATS test suite {{{1
 #
 do_bats () { 
-  echo "- bats $#: $@"
+  echo "- do_bats $#: $@"
+  cd dak/hex/network/test;npm test
   exit
 }
 
@@ -71,6 +72,7 @@ npack () {
 # Make submodules `./dak/hex/user` and `./dak/svc/hex-user` public.
 #
 npack_hex () {
+  echo "- npack_hex $#: $@"
   #npack dak/hex/agent dak-hex-agent # {{{2
   #init dak/hex/agent ubuntu u20
   #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/agent dak/hex/agent
@@ -82,7 +84,7 @@ npack_hex () {
   #npack dak/hex/network/test dak-hex-network-test
   #init dak/hex/network/test ubuntu u20
   #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/network/test dak/hex/network/test
-  #cd dak/hex/network/test;git remote rename u20 origin;cd -
+  #cd dak/hex/network/test;git remote rename u20 origin;git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/org dak/util/org;cd dak/util/org;git checkout main;cd -;cd ../../../.. FIXME
   #npack dak/hex/user dak-hex-user
   #init dak/hex/user ubuntu u20
   #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/user dak/hex/user
