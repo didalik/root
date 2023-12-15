@@ -15,7 +15,7 @@
 #
 do_bats () { 
   echo "- do_bats $#: $@"
-  cd dak/hex/network/test;npm test
+  cd dak/svc/hex;pwd;npm test
   exit
 }
 
@@ -38,6 +38,22 @@ init () {
   exit
 }
 
+## cmd init_dak_util_hex: add the leaf below as git submodule {{{1
+# .
+# ├── dak
+# │   └── util
+# │       └── hex
+#
+# Have it submodule dak/util/public. Copy LICENSE to it from the root.
+#
+init_dak_util_hex () {
+  echo "- init_dak_util_hex $#: $@"
+  #mkdir -p dak/util/hex
+  #cp LICENSE dak/util/hex
+  #init dak/util/hex ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/hex dak/util/hex
+}
+
 ## cmd npack: create/update an NPM package (package.json, ...) {{{1
 #
 # SYNOPSIS
@@ -56,7 +72,7 @@ npack () {
 }
 
 ## cmd npack_hex: add all the leaves below as NPM packages and git submodules {{{1
-# .
+# .                                 {{{2
 # ├── dak
 # │   ├── hex
 # │   │   ├── agent
@@ -70,7 +86,7 @@ npack () {
 # │       └── hex-user
 #
 # Make submodules `./dak/hex/user` and `./dak/svc/hex-user` public.
-#
+# }}}2
 npack_hex () {
   echo "- npack_hex $#: $@"
   #npack dak/hex/agent dak-hex-agent # {{{2
@@ -105,6 +121,26 @@ npack_hex () {
   #git submodule set-url dak/hex/user git@github.com:didalik/dak.hex.user.git
   #cd dak/svc/hex-user;git remote add dak.svc.hex-user git@github.com:didalik/dak.svc.hex-user.git;git push dak.svc.hex-user main;cd -
   #git submodule set-url dak/svc/hex-user git@github.com:didalik/dak.svc.hex-user.git
+}
+
+## cmd submodule_remove: remove submodule(s) from $repository {{{1
+#
+# SYNOPSIS
+#  submodule_remove <repository> <submodule> ...
+#
+submodule_remove () {
+  echo "- submodule_remove $#: $@"
+  local repository=$1
+  shift
+  cd $repository
+  for p in $@; do
+    echo "  - removing $p..."
+    git rm $p
+    rm -rf .git/modules/$p
+    git config --remove-section submodule.$p
+    echo '  + removed'
+  done
+  exit 0
 }
 
 ## cmd test: testing the 'npm test' script {{{1

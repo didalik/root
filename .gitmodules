@@ -1,9 +1,6 @@
 [submodule "aim/shex"]
 	path = aim/shex
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/aim/shex
-[submodule "dak/util/org"]
-	path = dak/util/org
-	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/org
 [submodule "dak/util/public"]
 	path = dak/util/public
 	url = git@github.com:didalik/svc.git
@@ -48,18 +45,6 @@
 [submodule "dak/svc/spa"]
 	path = dak/svc/spa
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/spa
-[submodule "dak/hex/agent"]
-	path = dak/hex/agent
-	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/agent
-[submodule "dak/hex/network/public"]
-	path = dak/hex/network/public
-	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/network/public
-[submodule "dak/hex/network/test"]
-	path = dak/hex/network/test
-	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/network/test
-[submodule "dak/hex/user"]
-	path = dak/hex/user
-	url = git@github.com:didalik/dak.hex.user.git
 [submodule "dak/svc/hex"]
 	path = dak/svc/hex
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex
@@ -69,3 +54,6 @@
 [submodule "dak/svc/hex-user"]
 	path = dak/svc/hex-user
 	url = git@github.com:didalik/dak.svc.hex-user.git
+[submodule "dak/util/hex"]
+	path = dak/util/hex
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/hex
