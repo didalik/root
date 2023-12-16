@@ -1,7 +1,6 @@
 {
   "private": true,
   "name": "node_modules_root",
-  "version": "1.0.0",
   "description": "The node_modules for all Дід Alik's JS",
   "scripts": {
     "test": "aim/bin/test.sh"

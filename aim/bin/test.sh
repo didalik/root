@@ -44,11 +44,17 @@ init () {
 # │   └── util
 # │       └── svc
 #
-# Copy LICENSE to it from the root. Submodule dak/util/public into it. 
+# Copy .gitignore and LICENSE to it from the root. Submodule dak/util/public into it. 
+#
+# See also:
+# https://vsupalov.com/git-fix-submodule/
+# https://stackoverflow.com/questions/1260748/how-do-i-remove-a-submodule?rq=3
+# https://stackoverflow.com/questions/73725003/how-to-remove-unwanted-inadvertent-git-submodules-in-new-repositories
 #
 init_dak_util_svc () {
   echo "- init_dak_util_svc $#: $@"
   #mkdir -p dak/util/svc
+  #cp .gitignore dak/util/svc
   #cp LICENSE dak/util/svc
   #init dak/util/svc ubuntu u20
   #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/svc dak/util/svc
