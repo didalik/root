@@ -48,12 +48,9 @@
 [submodule "dak/svc/hex"]
 	path = dak/svc/hex
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex
-[submodule "dak/svc/hex-agent"]
-	path = dak/svc/hex-agent
-	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex-agent
-[submodule "dak/svc/hex-user"]
-	path = dak/svc/hex-user
-	url = git@github.com:didalik/dak.svc.hex-user.git
-[submodule "dak/util/hex"]
-	path = dak/util/hex
-	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/hex
+[submodule "dak/util/org"]
+	path = dak/util/org
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/org
+[submodule "dak/util/svc"]
+	path = dak/util/svc
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/svc
