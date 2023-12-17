@@ -123,7 +123,7 @@ submodule_remove () {
   cd $repository
   for p in $@; do
     echo "  - removing $p..."
-    git rm $p
+    git rm -f $p
     rm -rf .git/modules/$p
     git config --remove-section submodule.$p
     echo '  + removed'
