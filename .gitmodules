@@ -3,7 +3,8 @@
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/aim/shex
 [submodule "dak/util/public"]
 	path = dak/util/public
-	url = git@github.com:didalik/svc.git
+  url = git@github.com:didalik/svc.git
+  branch = main
 [submodule "dev-qa-leaf-conf"]
 	path = dev-qa-leaf-conf
 	url = git@github.com:didalik/dev-qa-leaf-conf.git
@@ -48,9 +49,12 @@
 [submodule "dak/svc/hex"]
 	path = dak/svc/hex
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex
+  branch = main
 [submodule "dak/util/org"]
 	path = dak/util/org
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/org
+  branch = main
 [submodule "dak/util/svc"]
 	path = dak/util/svc
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/svc
+  branch = main
