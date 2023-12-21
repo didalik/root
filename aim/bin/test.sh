@@ -143,8 +143,8 @@ test () {
 
  Usage examples:
 
-  npm test --bats=true # to run the BATS test suite
-  npm test test me     # to run the 'test' command
+  npm test --bats  # to run the BATS test suite
+  npm test test me # to run the 'test' command
 
  Commands:
 

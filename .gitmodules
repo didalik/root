@@ -58,3 +58,6 @@
 	path = dak/util/svc
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/util/svc
   branch = main
+[submodule "dak/svc/index"]
+	path = dak/svc/index
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/registry
