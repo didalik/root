@@ -11,11 +11,12 @@
 
 . dak/util/org/lib/util.sh # {{{1
 
-## cmd do_bats: run the BATS test suite {{{1
+## cmd do_bats: run the BATS test suites {{{1
 #
 do_bats () { 
   echo "- do_bats $#: $@"
-  cd dak/svc/hex;pwd;npm test
+  pushd dak/svc/index;npm test;popd
+  pushd dak/svc/hex;  npm test;popd
   exit
 }
 
