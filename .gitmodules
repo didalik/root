@@ -61,3 +61,8 @@
 [submodule "dak/svc/index"]
 	path = dak/svc/index
 	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/registry
+  branch = main
+[submodule "dak/hex/user"]
+	path = dak/hex/user
+	url = ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/user
+	branch = main

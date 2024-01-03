@@ -88,9 +88,9 @@ npack () {
 # ├── dak
 # │   ├── hex
 # │   │   ├── agent
-# │   │   └── user
+# │   │   └── user                   # DONE
 # │   └── svc
-# │       └── hex
+# │       └── hex                    # DONE
 #
 # Make submodule `./dak/hex/user` public.
 # }}}2
@@ -102,14 +102,19 @@ npack_hex () {
   #cd dak/hex/agent;git remote rename u20 origin;cd -
   #npack dak/hex/user dak-hex-user
   #init dak/hex/user ubuntu u20
-  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/user dak/hex/user
+  #git submodule add -b main ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/user dak/hex/user
   #cd dak/hex/user;git remote rename u20 origin;cd -
+  #cd dak/hex/user
+  #git remote add public git@github.com:didalik/dak-hex-user.git
+  #git branch -M main
+  #git push -u public main
+  #cd -
   #npack dak/svc/hex dak-svc-hex
   #init dak/svc/hex ubuntu u20
   #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex dak/svc/hex
   #cd dak/svc/hex;git remote rename u20 origin;cd -
   #cd dak/hex/user;git remote add dak.hex.user git@github.com:didalik/dak.hex.user.git;git push dak.hex.user main;cd -
-  #git submodule set-url dak/hex/user git@github.com:didalik/dak.hex.user.git
+  #git submodule set-url dak/hex/user git@github.com:didalik/dak.hex.user.git # }}}2
 }
 
 ## cmd submodule_remove: remove submodule(s) from $repository {{{1

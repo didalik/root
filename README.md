@@ -6,9 +6,9 @@ Add all the leaves below as NPM packages and git submodules:
 ├── dak
 │   ├── hex
 │   │   ├── agent
-│   │   └── user
+│   │   └── user     # DONE on 01/03/2024
 │   └── svc
-│       └── hex
+│       └── hex      # DONE
 ```
 Make submodule `./dak/hex/user` public. FIXED on 12/16/2023.
 
