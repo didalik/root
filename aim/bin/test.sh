@@ -102,13 +102,13 @@ npack_hex () {
   #cd dak/hex/agent;git remote rename u20 origin;cd -
   #npack dak/hex/user dak-hex-user
   #init dak/hex/user ubuntu u20
-  #git submodule add -b main ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/hex/user dak/hex/user
   #cd dak/hex/user;git remote rename u20 origin;cd -
   #cd dak/hex/user
   #git remote add public git@github.com:didalik/dak-hex-user.git
   #git branch -M main
   #git push -u public main
   #cd -
+  #git submodule add -b main git@github.com:didalik/dak-hex-user.git dak/hex/user
   #npack dak/svc/hex dak-svc-hex
   #init dak/svc/hex ubuntu u20
   #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/dak/svc/hex dak/svc/hex
