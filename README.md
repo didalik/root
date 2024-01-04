@@ -25,4 +25,4 @@ Make submodule `./dak/hex/user` public. FIXED on 12/16/2023.
 ### dak/hex/user
 
 - Add User CREATOR
-- Have CREATOR run **HEX genesis**
+- Have CREATOR run **dak/hex/agent: HEX genesis**
