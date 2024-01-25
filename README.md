@@ -16,8 +16,7 @@ Make submodule `./dak/hex/user` public. FIXED on 12/16/2023.
 
 ### dak/hex/agent
 
-- Add ClawableHexa Issuer
-- Add HEXA Issuer
+- Add ClawableHexa and HEXA assets Issuer
 - Add Agent
 - Have Agent trust ClawableHexa and HEXA assets
 - Fund Agent with ClawableHexa and HEXA assets
