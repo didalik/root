@@ -14,8 +14,6 @@ Make submodule `./dak/hex/user` public. FIXED on 12/16/2023.
 
 ## HEX genesis
 
-### dak/hex/agent
-
 - Add ClawableHexa and HEXA assets Issuer
 - Add Agent
 - Have Agent trust ClawableHexa and HEXA assets
@@ -24,4 +22,6 @@ Make submodule `./dak/hex/user` public. FIXED on 12/16/2023.
 ### dak/hex/user
 
 - Add User CREATOR
-- Have CREATOR run **dak/hex/agent: HEX genesis**
+- Have CREATOR run **HEX genesis**
+
+### dak/hex/agent
