@@ -1,5 +1,5 @@
 # CFW {{{1
-aux
+#aux
 config
 dist
 .env

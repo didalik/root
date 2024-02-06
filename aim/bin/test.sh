@@ -83,6 +83,20 @@ npack () {
   exit 0
 }
 
+## cmd npack_aux: add the leaf below as an NPM package and git submodule {{{1
+# .                                 {{{2
+# └── aux
+#
+# }}}2
+npack_aux () {
+  echo "- npack_aux $#: $@"
+  #echo 'export desc="Generated on $(date). This is a description of $name."' > env.aux
+  #npack aux aux # {{{2
+  #init aux ubuntu u20
+  #git submodule add ssh://ubuntu@u20:/home/ubuntu/people/didalik/aux aux
+  #cd aux;git remote rename u20 origin;cd - # }}}2
+}
+
 ## cmd npack_hex: add all the leaves below as NPM packages and git submodules {{{1
 # .                                 {{{2
 # ├── dak
